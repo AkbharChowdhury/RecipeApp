@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">RecipeApp</string>
+    <string name="dish_name">Dish Name</string>
+    <string name="dish_food_image">Dish food image</string>
+    <string name="_2_persons">2 persons</string>
+    <string name="recipe_base_url">https://api.spoonacular.com/</string>
+    <string name="icon_text">%1$d %2$s</string>
+    <string name="ingredient_image">%1$s %2$s</string>
+    <string name="ingredient_img_url">https://img.spoonacular.com/ingredients_100x100/</string>
+    <string name="equipment_img_url">https://img.spoonacular.com/equipment_100x100/</string>
+
+    <string name="loading">Loading…</string>
+    <string name="menu">Menu</string>
+    <string name="search_recipe">search Recipe....</string>
+    <string name="loading_details">Loading Details…</string>
+    <string name="similar_name">Similar Name</string>
+    <string name="equipment">Equipment</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="similar_recipes">Similar Recipes</string>
+    <string name="summary">Summary</string>
+    <string name="source">Source</string>
+    <string name="recipe_name">Recipe Name</string>
+
+    <string-array name="tags_array">
+        <item>main course</item>
+        <item>side dish</item>
+        <item>dessert</item>
+        <item>appetizer</item>
+        <item>salad</item>
+        <item>bread</item>
+        <item>breakfast</item>
+        <item>soup</item>
+        <item>beverage</item>
+        <item>marinade</item>
+        <item>fingerfood</item>
+        <item>snack</item>
+        <item>drink</item>
+    </string-array>
+</resources>
