@@ -12,8 +12,12 @@ public class InstructionsModel {
         return image;
     }
 
+
+
     public InstructionsModel(String title, String image) {
         this.title = title;
         this.image = image;
     }
+
+
 }
