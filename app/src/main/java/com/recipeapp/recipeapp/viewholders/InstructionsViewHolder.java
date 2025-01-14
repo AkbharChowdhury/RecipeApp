@@ -21,10 +21,10 @@ public class InstructionsViewHolder extends RecyclerView.ViewHolder {
 
     public void showDetails(InstructionsResponse instruction) {
         binding.tvInstructionsName.setText(instruction.getName());
-        createRecyclerInstructionSteps(instruction);
+        createRecyclerView(instruction);
     }
 
-    private void createRecyclerInstructionSteps(InstructionsResponse instruction) {
+    private void createRecyclerView(InstructionsResponse instruction) {
         RecyclerView recyclerView = binding.recyclerInstructionSteps;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext(), LinearLayoutManager.VERTICAL, false));

@@ -16,6 +16,4 @@ public class InstructionsModel {
         this.title = title;
         this.image = image;
     }
-
-
 }

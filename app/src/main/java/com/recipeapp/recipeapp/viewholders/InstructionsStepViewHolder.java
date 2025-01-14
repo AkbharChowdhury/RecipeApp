@@ -35,22 +35,18 @@ public class InstructionsStepViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void showDetails(Step step) {
-        tvStepNum.setText(String.valueOf(step.getNumber()));
+        tvStepNum.setText(String.valueOf(step.getNumber() + ")"));
         tvTitle.setText(step.getStep());
         binding.tvIngredient.setVisibility(step.getIngredients().isEmpty() ? RecyclerView.GONE : RecyclerView.VISIBLE);
         binding.tvEquipment.setVisibility(step.getEquipment().isEmpty() ? RecyclerView.GONE : RecyclerView.VISIBLE);
 
-        String ingredientImageUrl = getImageUrl(R.string.ingredient_img_url);
+        String ingredientImageUrl = context.getString(R.string.ingredient_img_url);
 
         List<InstructionsModel> ingredientsModel = step.getIngredients().stream().map(ingredient -> new InstructionsModel(ingredient.getName(), ingredientImageUrl + ingredient.getImage())).collect(Collectors.toList());
         List<InstructionsModel> equipmentModel = step.getEquipment().stream().map(equipment -> new InstructionsModel(equipment.getName(), equipment.getImage())).collect(Collectors.toList());
 
         createRecyclerView(binding.recyclerInstructionIngredients, ingredientsModel);
         createRecyclerView(binding.recyclerInstructionEquipment, equipmentModel);
-    }
-
-    private String getImageUrl(int resID) {
-        return binding.getRoot().getContext().getString(resID);
     }
 
     private void createRecyclerView(RecyclerView recyclerView, List<InstructionsModel> list) {

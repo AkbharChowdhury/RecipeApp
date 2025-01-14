@@ -1,6 +1,5 @@
 package com.recipeapp.recipeapp.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
