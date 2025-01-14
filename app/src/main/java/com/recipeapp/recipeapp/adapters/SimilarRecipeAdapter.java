@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.recipeapp.recipeapp.databinding.ListSimilarRecipeBinding;
+import com.recipeapp.recipeapp.databinding.ListSimilarRecipesBinding;
 import com.recipeapp.recipeapp.interface_listeners.IRecipeClickListener;
 import com.recipeapp.recipeapp.models.SimilarRecipeResponse;
 import com.recipeapp.recipeapp.viewholders.SimilarRecipeViewHolder;
@@ -29,7 +29,7 @@ public class SimilarRecipeAdapter extends RecyclerView.Adapter<SimilarRecipeView
     @NonNull
     @Override
     public SimilarRecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new SimilarRecipeViewHolder(ListSimilarRecipeBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new SimilarRecipeViewHolder(ListSimilarRecipesBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override

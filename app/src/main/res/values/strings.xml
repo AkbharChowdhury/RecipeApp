@@ -20,6 +20,8 @@
     <string name="summary">Summary</string>
     <string name="source">Source</string>
     <string name="recipe_name">Recipe Name</string>
+    <string name="_2_person">2 person</string>
+    <string name="similar_recipe_description">2 persons | 45 mins</string>
 
     <string-array name="tags_array">
         <item>main course</item>
