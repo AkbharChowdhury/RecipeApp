@@ -1,6 +1,5 @@
 package com.recipeapp.recipeapp.viewholders;
 
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
