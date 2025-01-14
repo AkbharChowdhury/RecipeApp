@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.recipeapp.recipeapp.databinding.ListRandomRecipeBinding;
-import com.recipeapp.recipeapp.listeners.IRecipeClickListener;
+import com.recipeapp.recipeapp.interface_listeners.IRecipeClickListener;
 import com.recipeapp.recipeapp.models.Recipe;
 import com.recipeapp.recipeapp.viewholders.RandomRecipeViewHolder;
 

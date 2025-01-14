@@ -13,6 +13,7 @@ import com.recipeapp.recipeapp.databinding.ListInstructionsStepsBinding;
 import com.recipeapp.recipeapp.models.InstructionsModel;
 import com.recipeapp.recipeapp.models.Step;
 
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +36,7 @@ public class InstructionsStepViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void showDetails(Step step) {
-        tvStepNum.setText(String.valueOf(step.getNumber() + ")"));
+        tvStepNum.setText( formatStepNumber(step.getNumber(), "."));
         tvTitle.setText(step.getStep());
         binding.tvIngredient.setVisibility(step.getIngredients().isEmpty() ? RecyclerView.GONE : RecyclerView.VISIBLE);
         binding.tvEquipment.setVisibility(step.getEquipment().isEmpty() ? RecyclerView.GONE : RecyclerView.VISIBLE);
@@ -47,6 +48,10 @@ public class InstructionsStepViewHolder extends RecyclerView.ViewHolder {
 
         createRecyclerView(binding.recyclerInstructionIngredients, ingredientsModel);
         createRecyclerView(binding.recyclerInstructionEquipment, equipmentModel);
+    }
+
+    private String formatStepNumber(Number number, String style) {
+        return number.toString() + style;
     }
 
     private void createRecyclerView(RecyclerView recyclerView, List<InstructionsModel> list) {

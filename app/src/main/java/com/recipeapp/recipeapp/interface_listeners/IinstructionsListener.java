@@ -1,7 +1,6 @@
-package com.recipeapp.recipeapp.listeners;
+package com.recipeapp.recipeapp.interface_listeners;
 
 import com.recipeapp.recipeapp.models.InstructionsResponse;
-import com.recipeapp.recipeapp.models.RecipeDetailsResponse;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.recipeapp.recipeapp.listeners;
+package com.recipeapp.recipeapp.interface_listeners;
 
 import com.recipeapp.recipeapp.models.SimilarRecipeResponse;
 

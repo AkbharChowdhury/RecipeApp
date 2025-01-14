@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.recipeapp.recipeapp.adapters.RandomRecipeAdapter;
 import com.recipeapp.recipeapp.databinding.ActivityMainBinding;
-import com.recipeapp.recipeapp.listeners.IRandomRecipeResponseListener;
+import com.recipeapp.recipeapp.interface_listeners.IRandomRecipeResponseListener;
 import com.recipeapp.recipeapp.models.RandomRecipeApiResponse;
 
 import java.util.ArrayList;
