@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void initSpinnerTags() {
-        Spinner spinner = binding.spinnerTags;
+        Spinner spinner = binding.homeToolBar.spinnerTags;
         List<String> meals = Arrays.stream(getResources().getStringArray(R.array.tags_array)).sorted().collect(Collectors.toList());
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.spinner_text, meals);
         adapter.setDropDownViewResource(R.layout.spinner_inner_text);
@@ -105,13 +104,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void didError(String message) {
             dialog.dismiss();
-            Toast.makeText(getApplicationContext(), "An error has occurred fetching recipes " + message, Toast.LENGTH_LONG).show();
-            Log.d("Error_log", "An error has occurred fetching recipes " + message);
+            Toast.makeText(context, "An error has occurred fetching recipes " + message, Toast.LENGTH_LONG).show();
         }
     };
 
 
-    private void init() {
+    void init() {
         EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

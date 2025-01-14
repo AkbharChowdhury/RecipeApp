@@ -47,34 +47,17 @@ public class InstructionsStepViewHolder extends RecyclerView.ViewHolder {
 
         createRecyclerView(binding.recyclerInstructionIngredients, ingredientsModel);
         createRecyclerView(binding.recyclerInstructionEquipment, equipmentModel);
-
     }
 
     private String getImageUrl(int resID) {
         return binding.getRoot().getContext().getString(resID);
-
     }
 
     private void createRecyclerView(RecyclerView recyclerView, List<InstructionsModel> list) {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(new InstructionsModelAdapter(list));
-
     }
 
-//    private void recyclerViewEquipment(ArrayList<Equipment> equipments) {
-//        RecyclerView recyclerView = binding.recyclerInstructionEquipment;
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-//        recyclerView.setAdapter(new InstructionsEquipmentAdapter(equipments));
-//    }
-//
-//    private void recyclerViewIngredients(ArrayList<Ingredient> ingredients) {
-//        RecyclerView recyclerView = binding.recyclerInstructionIngredients;
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-//        recyclerView.setAdapter(new InstructionsIngredientAdapter(ingredients));
-//
-//    }
 
 }
