@@ -7,12 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.recipeapp.recipeapp.databinding.ListInstructionsStepItemsBinding;
-import com.recipeapp.recipeapp.models.Equipment;
 import com.recipeapp.recipeapp.models.InstructionsModel;
-import com.recipeapp.recipeapp.viewholders.InstructionsEquipmentViewHolder;
 import com.recipeapp.recipeapp.viewholders.InstructionsModelViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InstructionsModelAdapter extends RecyclerView.Adapter<InstructionsModelViewHolder> {

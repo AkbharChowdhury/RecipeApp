@@ -26,11 +26,8 @@ public class InstructionsModelViewHolder extends RecyclerView.ViewHolder {
 
     public void showDetails(InstructionsModel model) {
         tvTitle.setText(model.getTitle());
-        ImageHandler.loadImage(model.getImage(), imageView);
+        if (!model.getImage().isBlank()) ImageHandler.loadImage(model.getImage(), imageView);
 
-//        if (!model.getImage().isBlank()){
-//            ImageHandler.loadImage(model.getImage(), imageView);
-//        }
 
     }
 
