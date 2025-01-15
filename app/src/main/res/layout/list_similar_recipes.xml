@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+<!--https://proandroiddev.com/a-guide-for-android-imageview-scaletype-and-adjustviewbounds-64a1e4a35503 -->
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
