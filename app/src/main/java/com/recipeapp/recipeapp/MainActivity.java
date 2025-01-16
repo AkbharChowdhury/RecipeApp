@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -24,14 +23,10 @@ import com.recipeapp.recipeapp.adapters.RandomRecipeAdapter;
 import com.recipeapp.recipeapp.databinding.ActivityMainBinding;
 import com.recipeapp.recipeapp.interface_listeners.IRandomRecipeResponseListener;
 import com.recipeapp.recipeapp.models.RandomRecipeApiResponse;
-import com.recipeapp.recipeapp.models.Recipe;
 import com.recipeapp.recipeapp.models.Tags;
-import com.recipeapp.recipeapp.utils.MySpinner;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity {
     List<String> tags = new ArrayList<>();
