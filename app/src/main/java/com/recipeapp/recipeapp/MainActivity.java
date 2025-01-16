@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,6 +24,9 @@ import com.recipeapp.recipeapp.adapters.RandomRecipeAdapter;
 import com.recipeapp.recipeapp.databinding.ActivityMainBinding;
 import com.recipeapp.recipeapp.interface_listeners.IRandomRecipeResponseListener;
 import com.recipeapp.recipeapp.models.RandomRecipeApiResponse;
+import com.recipeapp.recipeapp.models.Recipe;
+import com.recipeapp.recipeapp.models.Tags;
+import com.recipeapp.recipeapp.utils.MySpinner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,12 +52,16 @@ public class MainActivity extends AppCompatActivity {
         initSpinnerTags();
     }
 
+    void searchRecipe(String text) {
+        addTags(text);
+        requestManager.getRandomRecipes(randRecipeResListener, tags);
+        dialog.show();
+    }
+
     SearchView.OnQueryTextListener searchListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
-            addTags(query);
-            requestManager.getRandomRecipes(randRecipeResListener, tags);
-            dialog.show();
+            searchRecipe(query);
             return false;
         }
 
@@ -66,9 +74,7 @@ public class MainActivity extends AppCompatActivity {
     AdapterView.OnItemSelectedListener spinnerSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            addTags(parent.getSelectedItem().toString());
-            requestManager.getRandomRecipes(randRecipeResListener, tags);
-            dialog.show();
+            searchRecipe(parent.getSelectedItem().toString());
         }
 
         @Override
@@ -82,13 +88,23 @@ public class MainActivity extends AppCompatActivity {
         tags.add(text);
     }
 
+
+
     void initSpinnerTags() {
-        Spinner spinner = binding.homeToolBar.spinnerTags;
-        List<String> meals = Arrays.stream(getResources().getStringArray(R.array.tags_array)).sorted().collect(Collectors.toList());
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.spinner_text, meals);
-        adapter.setDropDownViewResource(R.layout.spinner_inner_text);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(spinnerSelectedListener);
+
+        List<String> meals = Tags.getTags(context);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.dropdown_item, meals);
+        arrayAdapter.setDropDownViewResource(R.layout.spinner_inner_text);
+        AutoCompleteTextView autoCompleteTextViewMeal = binding.homeToolBar.autoCompleteTextViewMeal;
+        autoCompleteTextViewMeal.setAdapter(arrayAdapter);
+        String tag = autoCompleteTextViewMeal.getAdapter().getItem(0).toString();
+        autoCompleteTextViewMeal.setText(tag, false);
+        searchRecipe(tag);
+        autoCompleteTextViewMeal.setOnItemClickListener((parent, view, position, id) -> searchRecipe(parent.getAdapter().getItem(position).toString()));
+//        Spinner spinner = binding.homeToolBar.spinnerTags;
+//        MySpinner mySpinner = new MySpinner(context, spinner);
+//        mySpinner.initSpinner(meals, spinnerSelectedListener);
+
     }
 
     IRandomRecipeResponseListener randRecipeResListener = new IRandomRecipeResponseListener() {
