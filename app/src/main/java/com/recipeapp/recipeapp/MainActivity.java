@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
@@ -23,7 +22,7 @@ import com.recipeapp.recipeapp.adapters.RandomRecipeAdapter;
 import com.recipeapp.recipeapp.databinding.ActivityMainBinding;
 import com.recipeapp.recipeapp.interface_listeners.IRandomRecipeResponseListener;
 import com.recipeapp.recipeapp.models.RandomRecipeApiResponse;
-import com.recipeapp.recipeapp.models.Tags;
+import com.recipeapp.recipeapp.utils.MySpinner2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,21 +83,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     void initSpinnerTags() {
-
-        List<String> meals = Tags.getTags(context);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.dropdown_item, meals);
-        arrayAdapter.setDropDownViewResource(R.layout.spinner_inner_text);
         AutoCompleteTextView autoCompleteTextViewMeal = binding.homeToolBar.autoCompleteTextViewMeal;
-        autoCompleteTextViewMeal.setAdapter(arrayAdapter);
-        String tag = autoCompleteTextViewMeal.getAdapter().getItem(0).toString();
-        autoCompleteTextViewMeal.setText(tag, false);
+        var spinner = new MySpinner2(this, autoCompleteTextViewMeal);
+        spinner.configAdapter();
+        String tag = spinner.getItem(0);
+        spinner.setText(tag);
         searchRecipe(tag);
         autoCompleteTextViewMeal.setOnItemClickListener((parent, view, position, id) -> searchRecipe(parent.getAdapter().getItem(position).toString()));
-//        Spinner spinner = binding.homeToolBar.spinnerTags;
-//        MySpinner mySpinner = new MySpinner(context, spinner);
-//        mySpinner.initSpinner(meals, spinnerSelectedListener);
 
     }
 

@@ -18,6 +18,8 @@ public class MySpinner {
         this.spinner = spinner;
     }
 
+
+
     public void initSpinner(List<String> meals, AdapterView.OnItemSelectedListener spinnerSelectedListener){
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.spinner_text, meals);
         adapter.setDropDownViewResource(R.layout.spinner_inner_text);

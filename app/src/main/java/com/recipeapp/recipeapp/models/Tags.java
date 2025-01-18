@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Tags {
-    public static List<String> getTags(Context context){
-        return  Arrays.stream(context.getResources().getStringArray(R.array.tags_array)).sorted().collect(Collectors.toList());
+    public static List<String> getTags(Context context) {
+        return Arrays.stream(context.getResources().getStringArray(R.array.tags_array)).sorted().collect(Collectors.toList());
     }
 }
