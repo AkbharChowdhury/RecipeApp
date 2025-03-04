@@ -15,4 +15,7 @@ public class Typography {
         return context.getString(R.string.icon_text, number, text);
 
     }
+    public static String formatStepNumber(Number number, String style) {
+        return number.toString() + style;
+    }
 }
